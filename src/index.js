@@ -6,7 +6,7 @@ addEventListener("fetch", (event) => {
 const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
-"<your_sub_domain>": dockerHub,
+"docker.liuyq.xyz": dockerHub,
 // "<your_sub_domain>": "https://quay.io",
 // "<your_sub_domain>": "https://gcr.io",
 // "<your_sub_domain>": "https://k8s.gcr.io",
