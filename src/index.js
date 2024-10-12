@@ -1,3 +1,19 @@
+// 引入 about.html
+import DOCS from './about.html'
+ 
+// return docs
+
+// 增加路由，Path为 / 的时候，返回 about.html
+if (url.pathname === "/") {
+  return new Response(DOCS, {
+    status: 200,
+    headers: {
+      "content-type": "text/html"
+    }
+  });
+}
+
+
 addEventListener("fetch", (event) => {
   event.passThroughOnException();
   event.respondWith(handleRequest(event.request));
