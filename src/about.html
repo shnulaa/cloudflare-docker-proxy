@@ -1,0 +1,127 @@
+<html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>镜像使用说明</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .github-link {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .github-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Source Code Pro', monospace;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+            .header {
+                padding: 15px 0;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Source+Code+Pro:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <h1>欢迎使用本站加速 Docker 镜像拉取
+</h1>
+    <a href="https://github.com/viacooky/cloudflare-docker-proxy" target="_blank" class="github-link">
+        
+    </a>
+</div>
+<div class="container">
+    <div class="content">
+        
+
+<center><h1>使用方法</h1></center>
+
+
+
+<h2><p>1. 创建或修改 <code>/etc/docker/daemon.json</code> 文件，修改为：</p></h2>
+        <pre><code id="registry-config">{
+    "registry-mirrors": ["https://docker.0-0.im"]
+}
+</code></pre>
+<h2><p>2. 重启docker</p></h2>
+<pre><code id="registry-config">sudo systemctl restart docker.service</code></pre>
+        
+        
+        <br>
+
+<br>
+<center><p>自建镜像，切勿滥用</p></center>
+    </div>
+</div>
+<div class="footer">
+    <p>Powered by Cloudflare Workers</p>
+    <p><a href="https://0-0.im" target="_blank">0-0.im</a></p>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const host = window.location.hostname;
+        const mainDomain = host.split('.').slice(-2).join('.');
+        const registryConfigElement = document.getElementById('registry-config');
+        const commandsElement = document.getElementById('commands');
+
+        registryConfigElement.innerHTML = registryConfigElement.innerHTML.replace(/{{host}}/g, host);
+        commandsElement.innerHTML = commandsElement.innerHTML.replace(/{{host}}/g, mainDomain);
+    });
+</script>
+
+
+</body>
+</html>
